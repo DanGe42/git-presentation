@@ -398,6 +398,54 @@ git-presentation-example
           </section>
 
           <section>
+            <h3>The .gitignore file</h3>
+
+            <p>Files that are generated (for example, compiled object or
+            executable files) should not be added to the repository.</p>
+
+            <div class="fragment">
+              <h4>Example .gitignore</h4>
+
+              <pre><code class="no-highlight" data-trim>
+# C compiled files
+*.o
+bin/
+
+# Editor temporary files
+*.swp
+              </code></pre>
+
+              <p>All files ending in .swp and .o and all files in the bin/
+              folder will now be ignored. They will no longer show up in "git
+              status".</p>
+            </div>
+
+            <aside class="notes">
+              By the way, this is a good .gitignore to start with on your
+              projects.
+            </aside>
+          </section>
+
+          <section>
+            <h3>Keeping your history clean</h3>
+
+            <p>Commits should represent <strong>working</strong> code. In other
+            words, your code should compile and, ideally, pass all tests (if you
+            have any).</p>
+
+            <p class="fragment">Git has a staging area. This is where you can
+            organize your code before you make the commit. Use it to your
+            advantage!</p>
+
+            <p class="fragment">Commits should be small, atomic, and
+            to-the-point.</p>
+          </section>
+
+          <section>
+            <h3>Commit early and commit often!</h3>
+          </section>
+
+          <section>
             <h3>Made a mistake?</h3>
 
             <div class="fragment">
@@ -409,6 +457,13 @@ git-presentation-example
               <h4>git reset</h4>
               <p>One of the most confusing Git commits. Here's what you need to
               know:</p>
+
+              <ul>
+                <li>"git reset": Unstages all your changes (the opposite of "git
+                add"</li>
+                <li>"git reset --hard": The sledgehammer that removes all
+                uncommitted changes. Be careful with this command!</li>
+              </ul>
             </div>
             <pre class="fragment"><code data-trim>
             </code></pre>
@@ -417,7 +472,92 @@ git-presentation-example
               <p>git revert: Useful for undoing commits already pushed</p>
             </aside>
           </section>
+
+          <section>
+            <h3>Resolving merge conflicts</h3>
+            <!-- TODO -->
+            <!-- merge conflicts -->
+            <!-- stashing -->
+          </section>
+
+          <section>
+            <h3>Git bad practices (in order of severity)</h3>
+
+            <ul>
+              <li class="fragment">"git add -A" or "git add ." or "git add -u":
+              Bad <em>unless</em> you review your changes with "git status"
+              afterwards.</li>
+              <li class="fragment">"git commit -a": Stages all changes and
+              immediately starts a commit. Though, that's not as bad as...</li>
+              <li class="fragment">"git commit -am &lt;message&gt;": Stages all
+              changes and creates a commit with a message without letting you
+              know what changes you committed.</li>
+              <li class="fragment">"git push -f": No, just no.</li>
+            </ul>
+
+            <pre class="fragment"><code class="bash" data-trim>
+              alias yolo='git commit -am "Fuck it"; git push -f origin master'
+            </code></pre>
+          </section>
         </section>
+
+        <section>
+          <section>
+            <h2>Using Git like a ninja</h2>
+            <h3>The useful, dark corners of Git</h3>
+          </section>
+
+          <section>
+            <h3>git aliases</h3>
+            <!-- TODO: talk about aliases -->
+          </section>
+
+          <section>
+            <h3>Colors!</h3>
+            <!-- TODO: how to enable colors -->
+          </section>
+
+          <section>
+            <h3>git add -p</h3>
+          </section>
+
+          <section>
+            <h3>git status -sb</h3>
+          </section>
+
+          <section>
+            <h3>git log --oneline --decorate --graph</h3>
+          </section>
+
+          <section>
+            <h3>git bisect</h3>
+          </section>
+
+          <section>
+            <h3>git grep</h3>
+          </section>
+        </section>
+
+        <section>
+          <h2>Additional readings</h2>
+
+          <h4>Topics</h4>
+          <ul>
+            <li>Modifying history (e.g. rebasing)</li>
+            <li>Hooks (automating Git)</li>
+            <li>Remotes (pushing your code to different servers)</li>
+            <li>Branches</li>
+            <li>Low-level internals (e.g. blobs, indexes)</li>
+          </ul>
+
+          <h4>Useful websites/books</h4>
+          <ul>
+            <li>Pro Git</li>
+            <li>Version Control with Git</li>
+            <li>Git Immersion</li>
+          </ul>
+        </section>
+
 
       </div>
     </div>
