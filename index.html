@@ -52,22 +52,18 @@
           <section>
             <h3>A brief history of version control</h3>
 
-            <div class="fragment">
-              <p>Legacy version control (centralized):</p>
-              <ul>
-                <li>RCS (1982)</li>
-                <li>CVS (1990)</li>
-                <li>SVN (2000)</li>
-              </ul>
-            </div>
+            <p>Legacy version control (centralized):</p>
+            <ul>
+              <li>RCS (1982)</li>
+              <li>CVS (1990)</li>
+              <li>SVN (2000)</li>
+            </ul>
 
-            <div class="fragment">
-              <p>Modern version control (distributed):</p>
-              <ul>
-                <li>Git (2005)</li>
-                <li>Mercurial (2005)</li>
-              </ul>
-            </div>
+            <p>Modern version control (distributed):</p>
+            <ul>
+              <li>Git (2005)</li>
+              <li>Mercurial (2005)</li>
+            </ul>
 
           </section>
 
@@ -111,15 +107,14 @@
 
           <section>
             <h3>Brief installation guide</h3>
-            <div class="fragment">
-              <h4>Linux (eniac)</h4>
-              <p>It's already preinstalled</p>
 
-              <h4>Linux (Ubuntu)</h4>
-              <pre><code data-trim>
-              $ sudo apt-get install git
-              </code></pre>
-            </div>
+            <h4>Linux (eniac)</h4>
+            <p>It's already preinstalled</p>
+
+            <h4>Linux (Ubuntu)</h4>
+            <pre><code data-trim>
+            $ sudo apt-get install git
+            </code></pre>
 
             <div class="fragment">
               <h4>Windows</h4>
@@ -134,7 +129,11 @@
           <section>
             <h3>Let's start off</h3>
 
-            <pre class="fragment"><code data-trim>
+            <pre><code class="no-highlight" data-trim>
+$ mkdir project
+            </code></pre>
+
+            <pre><code data-trim>
 $ git init
 Initialized empty Git repository in /path/to/project/.git/
             </code></pre>
@@ -159,14 +158,12 @@ nothing to commit (create/copy files and use "git add" to track)
           <section>
             <h3>Let's add some files first</h3>
 
-            <div class="fragment">
-              <pre><code data-trim>
+            <pre><code data-trim>
 $ curl -O "http://files.danielge.org/hello.c"
 $ curl -O "http://files.danielge.org/fizzbuzz.c"
-              </code></pre>
-              <p><small>If curl is not installed, you can just use "wget
-                &lt;url&gt;"</small></p>
-            </div>
+            </code></pre>
+            <p><small>If curl is not installed, you can just use "wget
+              &lt;url&gt;"</small></p>
 
             <pre class="fragment"><code data-trim>
 $ git status
@@ -192,7 +189,7 @@ nothing added to commit but untracked files present (use "git add" to track)
           <section>
             <h3>Let's actually add some files</h3>
 
-            <pre class="fragment"><code data-trim>
+            <pre><code data-trim>
 $ git add fizzbuzz.c hello.c
             </code></pre>
 
@@ -213,12 +210,14 @@ $ git status
             <p class="fragment">We have now <strong>staged</strong> these files
             for comitting. However, remember, we have <strong>not</strong> made
             a commit yet. </p>
+
+            <p class="fragment">Untracked files must be explicitly added.</p>
           </section>
 
           <section>
             <h3>The commit</h3>
 
-            <pre class="fragment"><code data-trim>
+            <pre><code data-trim>
 $ git commit -m "First commit"
 [master (root-commit) 2e14363] First commit
  2 files changed, 22 insertions(+)
@@ -255,7 +254,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
           <section>
             <h3>Making changes</h3>
 
-            <pre class="fragment"><code data-trim>
+            <pre><code data-trim>
 $ git diff
 diff --git a/hello.c b/hello.c
 index 935ca88..385b7a6 100644
