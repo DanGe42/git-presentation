@@ -271,40 +271,122 @@ index 935ca88..385b7a6 100644
  }
             </code></pre>
 
-            <pre class="fragment"><code data-trim>
+            <pre class="fragment"><code class="no-highlight" data-trim>
 $ git add hello.c
 $ git commit -m "Added newline to Hello World"
 [master 00fa2a6] Added newline to Hello World
  1 file changed, 1 insertion(+), 1 deletion(-)
             </code></pre>
 
+            <p class="fragment">Note that the next <tt>git diff</tt> will not
+            show anything.</p>
+
             <aside class="notes">
-              Noticed that our working directory is once again dirty.
+              Notice that our working directory is once again dirty.
             </aside>
           </section>
 
           <section>
             <h3>Sharing your changes</h3>
 
-            <p class="fragment">Problem: Our commits are local. No one can see
-            them.</p>
-
-            <p class="fragment">This part might be hard to follow along. But
-            don't worry if you follow behind. Github/Bitbucket will always
-            remind you of these steps.</p>
+            <p class="fragment">Our commits are local. We need to push to
+            an external server.</p>
 
             <div class="fragment">
-              <p>Let's invoke a bit of magic (you always see this
-              instruction on Github/Bitbucket)</p>
+              <p>Let's invoke a bit of magic first:</p>
               <pre><code data-trim>
 $ git remote add origin git@github.com:DanGe42/git-presentation-example.git
               </code></pre>
             </div>
 
-            <pre class="fragment"><code data-trim>
+            <pre class="fragment"><code class="no-highlight" data-trim>
 $ git push
+Counting objects: 7, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 774 bytes, done.
+Total 7 (delta 1), reused 0 (delta 0)
+To git@github.com:DanGe42/git-presentation-example.git
+ * [new branch]      master -> master
+ Branch master set up to track remote branch master from origin.
             </code></pre>
 
+            <aside class="notes">
+              <p>If you already have a new repository created, you can follow
+              along. Otherwise, try to follow along, but don't worry if you fall
+              behind; this is the end of the interactive portion of the
+              presentation.</p>
+              <p><small>If you are following this from home, do have a
+              repository set up.</small></p>
+              <p>Note that you may have to run 'git push -u origin master' first
+              because of an empty repository.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h3>Pulling new changes</h3>
+
+            <pre class="fragment"><code class="no-highlight" data-trim>
+$ git pull
+remote: Counting objects: 7, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 7 (delta 1), reused 7 (delta 1)
+Unpacking objects: 100% (7/7), done.
+From github.com:DanGe42/git-presentation-example
+ * branch            master     -> FETCH_HEAD
+            </code></pre>
+
+            <p class="fragment">If running this for the first time, you may need
+            to use "git pull origin master" instead.</p>
+
+            <p class="fragment">You can also use "git fetch" and "git merge
+            origin/master" instead</p>
+
+          </section>
+
+          <section>
+            <h3>Seeing what you've done</h3>
+
+            <pre class="fragment"><code class="no-highlight" data-trim>
+$ git log
+commit 00fa2a6da9feb33a09f84c14e91ec91f259d612c
+Author: Daniel Ge &lt;dange@seas.upenn.edu&gt;
+Date:   Fri Sep 13 01:29:10 2013 -0400
+
+    Added newline to Hello World
+
+commit 2e143630cfd27f297362ca7428979b52136b7cf1
+Author: Daniel Ge &lt;dange@seas.upenn.edu&gt;
+Date:   Fri Sep 13 01:12:13 2013 -0400
+
+    First commit
+            </code></pre>
+
+          </section>
+
+          <section>
+            <h3>The other way of initializing a repository</h3>
+            <p class="fragment">If you have an already existing repository, you
+            can just run:</p>
+
+            <pre class="fragment"><code class="no-highlight" data-trim>
+$ git clone git@github.com:DanGe42/git-presentation-example.git
+Cloning into 'git-presentation-example'...
+remote: Counting objects: 7, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 7 (delta 1), reused 7 (delta 1)
+Receiving objects: 100% (7/7), done.
+Resolving deltas: 100% (1/1), done.
+            </code></pre>
+
+            <pre class="fragment"><code class="no-highlight" data-trim>
+$ ls
+git-presentation-example
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Any questions?</h3>
           </section>
         </section>
 
