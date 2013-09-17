@@ -113,7 +113,7 @@
             <p>It's already preinstalled</p>
 
             <h4>Linux (Ubuntu)</h4>
-            <pre><code data-trim>
+            <pre><code class="no-highlight" data-trim>
             $ sudo apt-get install git
             </code></pre>
 
@@ -133,14 +133,15 @@
 
             <pre><code class="no-highlight" data-trim>
 $ mkdir project
+$ cd project
             </code></pre>
 
-            <pre><code data-trim>
+            <pre><code class="no-highlight" data-trim>
 $ git init
 Initialized empty Git repository in /path/to/project/.git/
             </code></pre>
 
-            <pre class="fragment"><code data-trim>
+            <pre class="fragment"><code class="no-highlight" data-trim>
 $ git status
 # On branch master
 #
@@ -160,7 +161,7 @@ nothing to commit (create/copy files and use "git add" to track)
           <section>
             <h3>Let's add some files first</h3>
 
-            <pre><code data-trim>
+            <pre><code class="bash" data-trim>
 $ curl -O "http://files.danielge.org/hello.c"
 $ curl -O "http://files.danielge.org/fizzbuzz.c"
             </code></pre>
@@ -219,7 +220,7 @@ $ git status
           <section>
             <h3>The commit</h3>
 
-            <pre><code data-trim>
+            <pre><code class="no-highlight" data-trim>
 $ git commit -m "First commit"
 [master (root-commit) 2e14363] First commit
  2 files changed, 22 insertions(+)
@@ -227,7 +228,7 @@ $ git commit -m "First commit"
  create mode 100644 hello.c
             </code></pre>
 
-            <pre class="fragment"><code data-trim>
+            <pre class="fragment"><code class="no-highlight" data-trim>
 $ git status
 # On branch master
 nothing to commit, working directory clean
@@ -235,7 +236,7 @@ nothing to commit, working directory clean
 
             <p class="fragment">Let's make a change</p>
 
-            <pre class="fragment"><code data-trim>
+            <pre class="fragment"><code class="no-highlight" data-trim>
 $ git status
 # On branch master
 # Changes not staged for commit:
@@ -295,7 +296,7 @@ $ git commit -m "Added newline to Hello World"
 
             <div class="fragment">
               <p>Let's invoke a bit of magic first:</p>
-              <pre><code data-trim>
+              <pre><code class="no-highlight" data-trim>
 $ git remote add origin git@github.com:DanGe42/git-presentation-example.git
               </code></pre>
             </div>
