@@ -399,6 +399,158 @@ git-presentation-example
           </section>
 
           <section>
+            <h3>Resolving merge conflicts (part 1)</h3>
+
+            <p>If more than one person edits the same pieces of code, merge
+            conflicts are likely. Suppose Alice and Bob are editing the same
+            piece of code, and Alice pushes first. Bob will get the following
+            message when pushing.</p>
+
+            <pre><code class="no-highlight" data-trim>
+To git@github.com:DanGe42/git-presentation-example.git
+ ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to 'git@github.com:DanGe42/git-presentation-example.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first merge the remote changes (e.g.,
+hint: 'git pull') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+            </code></pre>
+
+            <p>Bob pulls, and will get this message</p>
+            <pre><code class="no-highlight" data-trim>
+Auto-merging fizzbuzz.c
+CONFLICT (content): Merge conflict in fizzbuzz.c
+Automatic merge failed; fix conflicts and then commit the result.
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Resolving merge conflicts (part 2a)</h3>
+            <p>Bob opens <code>fizzbuzz.c</code> and sees this:</p>
+            <pre><code class="c" data-trim>
+#include &lt;stdio.h&gt;
+
+int main (int argc, char** argv) {
+    int i;
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+    for (i = 1; i &lt;= 500; i++) {
+=======
+    for (i = 1; i &lt;= 200; i++) {
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 17f03889d9dcd34053f1682a6d6c5a25bbdfccdf
+        if (i % 3 == 0 &amp;&amp; i % 5 != 0) {
+            printf("fuzz\n");
+        } else if (i % 5 == 0 &amp;&amp; i % 3 != 0) {
+            printf("buzz\n");
+        } else if (i % 3 == 0 &amp;&amp; i % 5 == 0) {
+            printf("fizzbuzz\n");
+        }
+    }
+
+    return 0;
+}
+            </code></pre>
+
+            <p>Holy crap what does all this mean?</p>
+          </section>
+
+          <section>
+            <h3>Resolving merge conflicts (part 2a)</h3>
+
+            <pre><code class="no-highlight" data-trim>
+$ git status
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# You have unmerged paths.
+#   (fix conflicts and run "git commit")
+#
+# Unmerged paths:
+#   (use "git add &lt;file&gt;..." to mark resolution)
+#
+#       both modified:      fizzbuzz.c
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Resolving merge conflicts (part 2b)</h3>
+            <p>The top is (usually) your code:</p>
+            <pre><code class="no-highlight" data-trim>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+    for (i = 1; i &lt;= 500; i++) {
+=======
+            </code></pre>
+
+            <p>The bottom is (usually) someone else's code you conflicted
+            with:</p>
+            <pre><code class="no-highlight" data-trim>
+=======
+    for (i = 1; i &lt;= 200; i++) {
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 17f03889d9dcd34053f1682a6d6c5a25bbdfccdf
+            </code></pre>
+
+            <p>To make it a little less confusing...</p>
+
+            <ul>
+              <li><code>HEAD</code>: Refers to the commit that Git is currently
+              using in your working directory</li>
+              <li><code>17f03889d...</code>: An example of a commit's SHA1 hash.
+              Every commit has a unique hash; it's just a way to identify
+              them.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Resolving merge conflicts (part 3)</h3>
+
+            <p>Resolve the conflict:</p>
+            <pre><code class="c" data-trim>
+int main (int argc, char** argv) {
+    int i;
+    for (i = 1; i &lt;= 200; i++) {
+        if (i % 3 == 0 &amp;&amp; i % 5 != 0) {
+            printf("fuzz\n");
+            </code></pre>
+
+            <div class="fragment">
+              <p>Stage the file:</p>
+              <pre><code class="no-highlight" data-trim>
+  $ git add fizzbuzz.c
+              </code></pre>
+            </div>
+
+            <div class="fragment">
+              <p>And commit the merge resolution</p>
+              <pre><code class="no-highlight" data-trim>
+  $ git commit
+              </code></pre>
+            </div>
+
+            <p><strong>ALWAYS</strong> resolve conflicts. Never leave them in
+            the code.</p>
+
+            <aside class="notes">
+              Fortunately, Git's recursive merging strategy reduces the number
+              of merge conflicts compared to strategies employed by other
+              version control software. However, when teams work on the same
+              piece of code, merge conflicts are still inevitable.
+            </aside>
+          </section>
+
+          <section>
+            <h3>Always test your merge resolutions</h3>
+            <p>Git's recursive merging strategy reduces the number of merge
+            conflicts you have to deal with. However, it's not foolproof, and
+            cause subtle bugs in your code.</p>
+
+            <p>So, it bears repeating, always test your merge resolutions!</p>
+          </section>
+
+          <section>
             <h3>The .gitignore file</h3>
 
             <p>Files that are generated (for example, compiled object or
@@ -464,13 +616,6 @@ bin/
             <aside class="notes">
               <p>git revert: Useful for undoing commits already pushed</p>
             </aside>
-          </section>
-
-          <section>
-            <h3>Resolving merge conflicts</h3>
-            <!-- TODO -->
-            <!-- merge conflicts -->
-            <!-- stashing -->
           </section>
 
           <section>
