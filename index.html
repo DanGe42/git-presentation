@@ -521,20 +521,74 @@ bin/
 
           <section>
             <h3>git aliases</h3>
-            <!-- TODO: talk about aliases -->
+            <p>Aliases are useful for applying easy-to-understand names to
+            complicated commands.</p>
+
+            <h4>Examples</h4>
+            <pre><code class="bash" data-trim>
+git config --global alias.unstage 'reset'
+            </code></pre>
+            <pre><code class="bash" data-trim>
+git config --global alias.graph 'log --online --decorate --graph'
+            </code></pre>
+
+            <h4>Alternatively...</h4>
+            <p>Edit your <code>~/.gitconfig</code> file:</p>
+
+            <pre><code class="no-highlight" data-trim>
+[alias]
+    cdiff = diff --cached
+    stashes = stash list
+            </code></pre>
           </section>
 
           <section>
             <h3>Colors!</h3>
-            <!-- TODO: how to enable colors -->
+            <pre><code class="bash" data-trim>
+git config --global color.ui true
+            </code></pre>
+
+            <p>or in your gitconfig...</p>
+            <pre><code class="no-highlight" data-trim>
+[color]
+    ui = 1
+            </code></pre>
           </section>
 
           <section>
             <h3>git add -p</h3>
+            <p>Add by patch/hunk</p>
+
+            <pre><code class="diff" data-trim>
+diff --git a/fizzbuzz.c b/fizzbuzz.c
+index ee8e7a7..8eefaa3 100644
+--- a/fizzbuzz.c
++++ b/fizzbuzz.c
+@@ -2,7 +2,7 @@
+
+ int main (int argc, char** argv) {
+     int i;
+-    for (i = 1; i &lt;= 100; i++) {
++    for (i = 1; i &lt;= 200; i++) {
+         if (i % 3 == 0 &amp;&amp; i % 5 != 0) {
+             printf("fizz\n");
+         } else if (i % 5 == 0 &amp;&amp; i % 3 != 0) {
+Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]? y
+@@ -12,5 +12,5 @@ int main (int argc, char** argv) {
+         }
+     }
+
+-    return 1;
++    return 0;
+ }
+Stage this hunk [y,n,q,a,d,/,K,g,e,?]?
+            </code></pre>
+
           </section>
 
           <section>
             <h3>git status -sb</h3>
+            <p>A shortened <code>git status</code>.</p>
           </section>
 
           <section>
