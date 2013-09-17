@@ -798,11 +798,31 @@ Stage this hunk [y,n,q,a,d,/,K,g,e,?]?
         transition: 'fade',
         transitionSpeed: 'fast',
 
+        leap: {
+          gestureDelay: 2000,
+          pointerOpacity: 0
+        },
+
         // Optional libraries used to extend on reveal.js
         dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          {
+            src: 'lib/js/classList.js',
+            condition: function() { return !document.body.classList; }
+          },
+          {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function() { hljs.initHighlightingOnLoad(); }
+          },
+          {
+            src: 'plugin/notes/notes.js',
+            async: true,
+            condition: function() { return !!document.body.classList; }
+          },
+          {
+            src: 'plugin/leap/leap.js',
+            async: true
+          }
         ]
       });
 
