@@ -117,15 +117,12 @@
             $ sudo apt-get install git
             </code></pre>
 
-            <div class="fragment">
-              <h4>Windows</h4>
-              <p>Go to <a href="git-scm.com">git-scm.com</a></p>
-            </div>
-            <div class="fragment">
-              <h4>OS X</h4>
-              <p>Go to <a href="git-scm.com">git-scm.com</a></p>
-              <p>Or install via Homebrew</p>
-            </div>
+            <h4>Windows</h4>
+            <p>Go to <a href="git-scm.com">git-scm.com</a></p>
+
+            <h4>OS X</h4>
+            <p>Go to <a href="git-scm.com">git-scm.com</a></p>
+            <p>Or install via Homebrew</p>
           </section>
 
           <section>
@@ -280,18 +277,20 @@ $ git commit -m "Added newline to Hello World"
  1 file changed, 1 insertion(+), 1 deletion(-)
             </code></pre>
 
-            <p class="fragment">Note that the next <tt>git diff</tt> will not
-            show anything.</p>
-
             <aside class="notes">
               Notice that our working directory is once again dirty.
+
+              Once we stage the change, Git considers the change "cached". This
+              means that the next "git diff" will not return anything. However,
+              you can reveal this change by running "git diff --cached" before
+              you commit.
             </aside>
           </section>
 
           <section>
             <h3>Sharing your changes</h3>
 
-            <p class="fragment">Our commits are local. We need to push to
+            <p>Our commits are local. We need to push to
             an external server.</p>
 
             <div class="fragment">
@@ -328,7 +327,7 @@ To git@github.com:DanGe42/git-presentation-example.git
           <section>
             <h3>Pulling new changes</h3>
 
-            <pre class="fragment"><code class="no-highlight" data-trim>
+            <pre><code class="no-highlight" data-trim>
 $ git pull
 remote: Counting objects: 7, done.
 remote: Compressing objects: 100% (6/6), done.
@@ -338,10 +337,10 @@ From github.com:DanGe42/git-presentation-example
  * branch            master     -> FETCH_HEAD
             </code></pre>
 
-            <p class="fragment">If running this for the first time, you may need
+            <p>If running this for the first time, you may need
             to use "git pull origin master" instead.</p>
 
-            <p class="fragment">You can also use "git fetch" and "git merge
+            <p>You can also use "git fetch" and "git merge
             origin/master" instead</p>
 
           </section>
@@ -349,7 +348,7 @@ From github.com:DanGe42/git-presentation-example
           <section>
             <h3>Seeing what you've done</h3>
 
-            <pre class="fragment"><code class="no-highlight" data-trim>
+            <pre><code class="no-highlight" data-trim>
 $ git log
 commit 00fa2a6da9feb33a09f84c14e91ec91f259d612c
 Author: Daniel Ge &lt;dange@seas.upenn.edu&gt;
@@ -368,10 +367,10 @@ Date:   Fri Sep 13 01:12:13 2013 -0400
 
           <section>
             <h3>The other way of initializing a repository</h3>
-            <p class="fragment">If you have an already existing repository, you
+            <p>If you have an already existing repository, you
             can just run:</p>
 
-            <pre class="fragment"><code class="no-highlight" data-trim>
+            <pre><code class="no-highlight" data-trim>
 $ git clone git@github.com:DanGe42/git-presentation-example.git
 Cloning into 'git-presentation-example'...
 remote: Counting objects: 7, done.
@@ -381,7 +380,7 @@ Receiving objects: 100% (7/7), done.
 Resolving deltas: 100% (1/1), done.
             </code></pre>
 
-            <pre class="fragment"><code class="no-highlight" data-trim>
+            <pre><code class="no-highlight" data-trim>
 $ ls
 git-presentation-example
             </code></pre>
@@ -435,12 +434,10 @@ bin/
             words, your code should compile and, ideally, pass all tests (if you
             have any).</p>
 
-            <p class="fragment">Git has a staging area. This is where you can
-            organize your code before you make the commit. Use it to your
-            advantage!</p>
+            <p>Git has a staging area. This is where you can organize your code
+            before you make the commit. Use it to your advantage!</p>
 
-            <p class="fragment">Commits should be small, atomic, and
-            to-the-point.</p>
+            <p>Commits should be small, atomic, and to-the-point.</p>
           </section>
 
           <section>
@@ -450,25 +447,19 @@ bin/
           <section>
             <h3>Made a mistake?</h3>
 
-            <div class="fragment">
-              <h4>git revert</h4>
-              <p>Reverses an earlier commit by creating a new commit.</p>
-            </div>
+            <h4>git revert</h4>
+            <p>Reverses an earlier commit by creating a new commit.</p>
 
-            <div class="fragment">
-              <h4>git reset</h4>
-              <p>One of the most confusing Git commits. Here's what you need to
-              know:</p>
+            <h4>git reset</h4>
+            <p>One of the most confusing Git commits. Here's what you need to
+            know:</p>
 
-              <ul>
-                <li><code>git reset</code>: Unstages all your changes (the
-                opposite of <code>git add</code></li>
-                <li><code>git reset --hard</code>: The sledgehammer that removes
-                all uncommitted changes. Be careful with this command!</li>
-              </ul>
-            </div>
-            <pre class="fragment"><code data-trim>
-            </code></pre>
+            <ul>
+              <li><code>git reset</code>: Unstages all your changes (the
+              opposite of <code>git add</code></li>
+              <li><code>git reset --hard</code>: The sledgehammer that removes
+              all uncommitted changes. Be careful with this command!</li>
+            </ul>
 
             <aside class="notes">
               <p>git revert: Useful for undoing commits already pushed</p>
