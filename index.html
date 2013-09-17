@@ -623,7 +623,7 @@ bin/
           </section>
 
           <section>
-            <h3>Git bad practices (in order of severity)</h3>
+            <h3>Git bad practices (in rough order of severity)</h3>
 
             <ul>
               <li class="fragment"><code>git add -A</code> or <code>git add
@@ -631,13 +631,13 @@ bin/
               Bad <em>unless</em> you review your changes with
               <code>git status</code> afterwards.</li>
 
-              <li class="fragment"><code>git commit -a</code>: Stages all
-              changes and immediately starts a commit. Though, that's not as bad
-              as...</li>
-
               <li class="fragment">Shitty commit messages: "Fix bug", "Derp",
               "Fuck this shit", etc. General rule: you need at least three
               words.
+
+              <li class="fragment"><code>git commit -a</code>: Stages all
+              changes and immediately starts a commit. Though, that's not as bad
+              as...</li>
 
               <li class="fragment"><code>git commit -am &lt;message&gt;</code>:
               Stages all changes and creates a commit with a message without
