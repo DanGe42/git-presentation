@@ -460,10 +460,10 @@ bin/
               know:</p>
 
               <ul>
-                <li>"git reset": Unstages all your changes (the opposite of "git
-                add"</li>
-                <li>"git reset --hard": The sledgehammer that removes all
-                uncommitted changes. Be careful with this command!</li>
+                <li><code>git reset</code>: Unstages all your changes (the
+                opposite of <code>git add</code></li>
+                <li><code>git reset --hard</code>: The sledgehammer that removes
+                all uncommitted changes. Be careful with this command!</li>
               </ul>
             </div>
             <pre class="fragment"><code data-trim>
@@ -485,15 +485,20 @@ bin/
             <h3>Git bad practices (in order of severity)</h3>
 
             <ul>
-              <li class="fragment">"git add -A" or "git add ." or "git add -u":
-              Bad <em>unless</em> you review your changes with "git status"
-              afterwards.</li>
-              <li class="fragment">"git commit -a": Stages all changes and
-              immediately starts a commit. Though, that's not as bad as...</li>
-              <li class="fragment">"git commit -am &lt;message&gt;": Stages all
-              changes and creates a commit with a message without letting you
-              know what changes you committed.</li>
-              <li class="fragment">"git push -f": No, just no.</li>
+              <li class="fragment"><code>git add -A</code> or <code>git add
+              .</code> or <code>git add -u</code>:
+              Bad <em>unless</em> you review your changes with
+              <code>git status</code> afterwards.</li>
+
+              <li class="fragment"><code>git commit -a</code>: Stages all
+              changes and immediately starts a commit. Though, that's not as bad
+              as...</li>
+
+              <li class="fragment"><code>git commit -am &lt;message&gt;</code>:
+              Stages all changes and creates a commit with a message without
+              letting you know what changes you committed.</li>
+
+              <li class="fragment"><code>git push -f</code>: No, just no.</li>
             </ul>
 
             <pre class="fragment"><code class="bash" data-trim>
