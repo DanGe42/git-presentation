@@ -11,6 +11,16 @@ The following sections have been lifted directly from the reveal.js README
 because they apply with little modification to this presentaiton if you plan to
 hack on it.
 
+## Contributing
+
+If you'd like to improve the material in the slides, you can contribute in two
+ways:
+
+1. Open a [new issue](https://github.com/DanGe42/git-presentation/issues).
+2. If you can work directly with the source, you can open a [pull
+   request](https://github.com/DanGe42/git-presentation/pulls).
+
+
 ## Installation
 
 The **basic setup** is for authoring presentations only. The **full setup** gives you access to all reveal.js features and plugins such as speaker notes as well as the development tasks needed to make changes to the source.
